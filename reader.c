@@ -14,7 +14,11 @@ int main(){
     int bytes_read;
 
     fd = open (FIFO_NAME,O_RDONLY);
-    printf("open descriptor for reading\n");
+    if (fd==-1){
+        perror("reading");
+        EXIT_FAILURE;
+    } else printf("open descriptor for reading\n");
+    
     bytes_read = read (fd, buffer,BUF_SIZE -1);
     if (bytes_read == -1){
         perror("read");
