@@ -138,5 +138,16 @@ void process_for_chatting(const char *mode)
 
 int main(int argc ,char *argv[])
 {
-
+    if(argc!=2){
+        EXIT_FAILURE;
+    }
+    if(strcmp(argv[1],"server")==0){
+        process_for_chatting(argv[1]);
+    } else if (strcmp(argv[1],"client")==0){
+        process_for_chatting(argv[1]);
+    } else {
+        printf("Error, use 'client' or 'server' mode!\n");
+        EXIT_FAILURE;
+    }
+    return 0;
 }
